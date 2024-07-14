@@ -1,0 +1,35 @@
+ordinary_money = input("Enter the money you want to put in:")
+#确保用户输入正常金额：
+try:
+    ordinary_money = float(ordinary_money)
+except:
+    print("please enter a number")
+    exit()
+#根据充值金额进行赠送：
+if 1000 <= ordinary_money <= 2000:
+    give_money = ordinary_money * 0.15
+elif 10000 > ordinary_money >= 5000:
+    give_money = ordinary_money * 0.2 + 500
+elif ordinary_money >= 10000:
+    give_money = 10000
+elif 2000 < ordinary_money < 5000:
+    give_money = ordinary_money * 0.18
+else:
+    give_money = 0
+#根据是否为新顾客进行赠送：
+customer = input("if you are new enter 1,if you are old enter 2")
+try:
+    customer= float(customer)
+except:
+    print("please enter a number")
+    exit()
+if customer ==1:
+    give_money += ordinary_money*0.1
+elif customer == 2:
+    give_money = give_money
+while customer != 1 and customer !=2:
+    print("please enter 1 or 0")
+    exit()
+    #计算最终有效金额：
+fina_money = ordinary_money + give_money
+print("%.2f" % fina_money)
